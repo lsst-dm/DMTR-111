@@ -9,7 +9,7 @@
 
 \begin{document}
 
-\def\milestoneName{Lvv-p15} 
+\def\milestoneName{Ldm-503-09a: science pipelines fall 2018 release}
 \def\milestoneId{LVV-P15}
 \def\product{Science Pipelines SW}
 
@@ -33,6 +33,7 @@ This is the test plan and report for \milestoneId{} (\milestoneName{}), an LSST 
 
 \section{Introduction}
 \label{sect:intro}
+
 
 \subsection{Objectives}
 \label{sect:objectives}
@@ -62,10 +63,13 @@ release of the LSST Science Pipelines (Pipelines release version
   context of the release.
 \end{itemize}
 
-\textbf{Scope}\\[2\baselineskip]The overall strategy for testing and
-verification within LSST Data Management is described in \citeds{LDM-503}.\\
+\subsection{Scope}\label{scope}
+
+The overall strategy for testing and verification within LSST Data
+Management is described in \citeds{LDM-503}.\\
 This test plan specifically tests the milestone LDM-503-09a, which
 refers to the Fall 2018 release of the LSST Science Pipelines.
+
 
 
 \subsection{System Overview}
@@ -83,12 +87,11 @@ Documents\\
 }\\
 \citeds{LDM-503} Data Management Test Plan\\
 \citeds{LDM-151} Data Management Science Pipelines Design\\
-LSE-61 Data Management System Requirements
+\citeds{LSE-61} Data Management System Requirements
 
 
 \subsection{References}
 \label{sect:references}
-
 \renewcommand{\refname}{}
 \bibliography{lsst,refs,books,refs_ads}
 
@@ -105,7 +108,6 @@ Section \ref{sect:testresults} is filled after the test activity is completed.
 Its includes  an overview of the resulta in \ref{sect:overview}
 while \ref{sect:detailedtestresults} provides more detailed results from each individual test case.
 
-\newpage
 \section{Test Configuration}
 \label{sect:configuration}
 
@@ -132,7 +134,6 @@ prerequisites of the LSST pipelines.\\[2\baselineskip]
 
 
 
-\newpage
 \section{Personnel}
 \label{sect:personnel}
 
@@ -144,11 +145,11 @@ Following personnel is involved in the test activity:
 \begin{itemize}
   \item LVV-C18: John Swinbank (swinbank)
   \begin{itemize}
-    \item Test case LVV-T362:  (swinbank)
-    \item Test case LVV-T363:  (swinbank)
+    \item Test case LVV-T362: John Swinbank (swinbank)
+    \item Test case LVV-T363: John Swinbank (swinbank)
   \end{itemize}
 \end{itemize}
-\item Additional Test Personel involved: None
+\item Additional Test Personnel involved: None
 \end{itemize}
 
 \newpage
@@ -160,7 +161,6 @@ Following personnel is involved in the test activity:
 
 LDM-503-09a: Science Pipelines Fall 2018 Release
 
-
 This test cycle describes tests performed on the Science Pipelines Fall
 2018 (v17.0) release, ensuring that the release is properly identified,
 documented, distributed, installable and tested.
@@ -169,114 +169,140 @@ documented, distributed, installable and tested.
 
 \subsubsection{LVV-T362}
 
-This test will check:
-\begin{itemize}
-\item That the Alert Production Pipeline payload is available for installation from documented channels;
-\item That the Data Release Production Pipeline payload is available for installation from documented channels;
-\item That the Calibration Products Production Pipeline payload is available for installation from documented channels;
-\item That these payloads can be installed on systems at the LSST Data Facility following available documentation;
-\item That the installed pipeline payloads are capable of successfully executing basic integration tests.
-\end{itemize}
-Note that this test assumes a 2018-era packaging of the Science Pipelines software, in which all the above payloads are represented by a single “meta-package”, lsst\_distrib.
 
-    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
-    %\toprule
-    Step & \multicolumn{2}{@{}l}{Description} \\ \toprule
-    \endhead
 
-            \multirow{1}{*}{ 1 } &  &
-            \begin{minipage}[t]{13cm}{\footnotesize
-The LSST Science Pipelines, described by the lsst\_distrib meta-package, should be installed following the documentation available at https://pipelines.lsst.io/. The suggested Conda environment will be used to ensure that a supported execution environment is available.
-            \vspace{\dp0}
-            } \end{minipage} \\ \cline{2-3}
+\begin{longtable}[]{p{1.3cm}p{15cm}}
+%\toprule
+Step & {Description} \\ \toprule
+\endhead
 
-            \multirow{1}{*}{ 2 } &  &
-            \begin{minipage}[t]{13cm}{\footnotesize
-The lsst\_distrib top-level metapackage will be enabled. Assuming that the software has been installed at \${LSST\_DIR}:
-\begin{verbatim}
-       source ${LSST_DIR}/loadLSST.bash
-       setup lsst_distrib
-\end{verbatim}
-            \vspace{\dp0}
-            } \end{minipage} \\ \cline{2-3}
 
-            \multirow{1}{*}{ 3 } &  &
-            \begin{minipage}[t]{13cm}{\footnotesize
-The “LSST Stack Demo” package will be downloaded onto the test system from \url{https://github.com/lsst/lsst_dm_stack_demo/releases}. The version corresponding to to the version of the Science Pipelines under test should be chosen.
-            \vspace{\dp0}
-            } \end{minipage} \\ \cline{2-3}
+\multirow{1}{*}{ 1 } &
+\begin{minipage}[t]{13cm}{\footnotesize
+The LSST Science Pipelines, described by the lsst\_distrib meta-package,
+should be installed following the documentation available at
+https://pipelines.lsst.io/. The suggested Conda environment will be used
+to ensure that a supported execution environment is available.
 
-            \multirow{1}{*}{ 4 } &  &
-            \begin{minipage}[t]{13cm}{\footnotesize
-The stack demo package is uncompressed into a directory \begin{verbatim}${DEMO_DIR}\end{verbatim}.
-            \vspace{\dp0}
-            } \end{minipage} \\ \cline{2-3}
+\vspace{\dp0}
+} \end{minipage} \\
+\\ \midrule
+\multirow{1}{*}{ 2 } &
+\begin{minipage}[t]{13cm}{\footnotesize
+The lsst\_distrib top-level metapackage will be enabled. Assuming that
+the software has been installed at
+\$\{LSST\_DIR\}:\\[2\baselineskip]\hspace*{0.333em} ~ ~ ~source
+\$\{LSST\_DIR\}/loadLSST.bash\\
+\hspace*{0.333em} ~ ~ ~setup lsst\_distrib
 
-            \multirow{1}{*}{ 5 } &  &
-            \begin{minipage}[t]{13cm}{\footnotesize
-The demo package will be executed by following the instructions in its README file. Successful execution will result in the string “Ok” being returned.
-            \vspace{\dp0}
-            } \end{minipage} \\ \cline{2-3}
+\vspace{\dp0}
+} \end{minipage} \\
+\\ \midrule
+\multirow{1}{*}{ 3 } &
+\begin{minipage}[t]{13cm}{\footnotesize
+The ``LSST Stack Demo'' package will be downloaded onto the test system
+from https://github.com/lsst/lsst\_dm\_stack\_demo/releases. The version
+corresponding to to the version of the Science Pipelines under test
+should be chosen.
 
-        \\ \midrule
-    \end{longtable}
+\vspace{\dp0}
+} \end{minipage} \\
+\\ \midrule
+\multirow{1}{*}{ 4 } &
+\begin{minipage}[t]{13cm}{\footnotesize
+The stack demo package is uncompressed into a directory \$\{DEMO\_DIR\}.
+
+\vspace{\dp0}
+} \end{minipage} \\
+\\ \midrule
+\multirow{1}{*}{ 5 } &
+\begin{minipage}[t]{13cm}{\footnotesize
+The demo package will be executed by following the instructions in its
+README file.~
+
+\vspace{\dp0}
+} \end{minipage} \\
+\\ \midrule
+
+\end{longtable}
+
 
 
 \subsubsection{LVV-T363}
 
 
-This test will check:
-\begin{itemize}
-\item That a particular Science Pipelines release is adequately described by documentation at the https://pipelines.lsst.io/ site;
-\item That the Science Pipelines release is accompanied by a characterization report which describes its scientific performance.
-\end{itemize}
 
-    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
-    %\toprule
-    Step & \multicolumn{2}{@{}l}{Description} \\ \toprule
-    \endhead
+\begin{longtable}[]{p{1.3cm}p{15cm}}
+%\toprule
+Step & {Description} \\ \toprule
+\endhead
 
-            \multirow{1}{*}{ 1 } &  &
-            \begin{minipage}[t]{13cm}{\footnotesize
+
+\multirow{1}{*}{ 1 } &
+\begin{minipage}[t]{13cm}{\footnotesize
 Load the Science Pipelines website at https://pipelines.lsst.io/.
-            \vspace{\dp0}
-            } \end{minipage} \\ \cline{2-3}
 
-            \multirow{1}{*}{ 2 } &  &
-            \begin{minipage}[t]{13cm}{\footnotesize
-Identify documentation for the release under test. This should be clearly labelled on the documentation site.
+\vspace{\dp0}
+} \end{minipage} \\
+\\ \midrule
+\multirow{1}{*}{ 2 } &
+\begin{minipage}[t]{13cm}{\footnotesize
+Identify documentation for the release under test. This should be
+clearly labelled on the documentation site.\\[2\baselineskip]If the
+latest release is being tested, the default page loaded when visiting
+https://pipelines.lsst.io/ should be the documentation
+required.\\[2\baselineskip]If this test is for another release, the site
+should present clear instructions for changing the edition (or version)
+of the documentation being examined, and documentation for the release
+under test should be available.
 
-If the latest release is being tested, the default page loaded when visiting https://pipelines.lsst.io/ should be the documentation required.
+\vspace{\dp0}
+} \end{minipage} \\
+\\ \midrule
+\multirow{1}{*}{ 3 } &
+\begin{minipage}[t]{13cm}{\footnotesize
+Inspect the documentation to ensure that it refers to the release under
+test, and that it provides:
 
-If this test is for another release, the site should present clear instructions for changing the edition (or version) of the documentation being examined, and documentation for the release under test should be available.
-            \vspace{\dp0}
-            } \end{minipage} \\ \cline{2-3}
-
-            \multirow{1}{*}{ 3 } &  &
-            \begin{minipage}[t]{13cm}{\footnotesize
-Inspect the documentation to ensure that it refers to the release under test, and that it provides:
 \begin{itemize}
-\item Release notes, describing changes in this release relative to the previous;
-\item Installation instructions, together with a list of supported platforms and prerequisites;
-\item Getting started information.
+\tightlist
+\item
+  Release notes, describing changes in this release relative to the
+  previous;
+\item
+  Installation instructions, together with a list of supported platforms
+  and prerequisites;
+\item
+  Getting started information.
 \end{itemize}
-            \vspace{\dp0}
-            } \end{minipage} \\ \cline{2-3}
 
-            \multirow{1}{*}{ 4 } &  &
-            \begin{minipage}[t]{13cm}{\footnotesize
-Locate the Characterization Metric Report corresponding to this release. It should be linked from the main release documentation.
-            \vspace{\dp0}
-            } \end{minipage} \\ \cline{2-3}
+\vspace{\dp0}
+} \end{minipage} \\
+\\ \midrule
+\multirow{1}{*}{ 4 } &
+\begin{minipage}[t]{13cm}{\footnotesize
+Locate the Characterization Metric Report corresponding to this release.
+It should be linked from the main release documentation.
 
-            \multirow{1}{*}{ 5 } &  &
-            \begin{minipage}[t]{13cm}{\footnotesize
-Verify that the characterization metric report describes the scientific performance of the release in terms of metrics referring to high-level requirements documentation (the Science Requirements Document, LPM-17; the LSST System Requirements, LSE-29; and/or the Observatory System Specifications, LSE-30).
-            \vspace{\dp0}
-            } \end{minipage} \\ \cline{2-3}
+\vspace{\dp0}
+} \end{minipage} \\
+\\ \midrule
+\multirow{1}{*}{ 5 } &
+\begin{minipage}[t]{13cm}{\footnotesize
+Verify that the characterization metric report describes the scientific
+performance of the release in terms of metrics referring to high-level
+requirements documentation (the Science Requirements Document, LPM-17;
+the LSST System Requirements, LSE-29; and/or the Observatory System
+Specifications, LSE-30).
 
-        \\ \midrule
-    \end{longtable}
+\vspace{\dp0}
+} \end{minipage} \\
+\\ \midrule
+
+\end{longtable}
+
+
+
 
 \newpage
 
@@ -290,11 +316,12 @@ Verify that the characterization metric report describes the scientific performa
 \label{sect:summarytable}
 
 
-\begin{longtable} {|p{0.2\textwidth}|p{0.2\textwidth}|p{0.6\textwidth}|}
-\hline
-{\bf TEST CASE ID} & {\bf PASS/FAIL} & {\bf COMMENTS} \\\hline
-LVV-T362 & Not Run & \\\hline
-LVV-T363 & Not Run & \\\hline
+\begin{longtable} {p{0.2\textwidth}p{0.2\textwidth}p{0.6\textwidth}}
+\toprule
+\multicolumn{3}{c}{ Test Cycle {\bf LVV-C18: LDM-503-09a: Science Pipelines Fall 2018 Release }} \\\hline
+{\bf \footnotesize test case id} & {\bf \footnotesize status} & {\bf \footnotesize comment} \\\toprule
+LVV-T362 & Not Executed &  \\\hline
+LVV-T363 & Not Executed &  \\\hline
 \end{longtable}
 
 \subsubsection{Overall Assessment}
@@ -306,6 +333,5 @@ LVV-T363 & Not Run & \\\hline
 
 \subsection{Detailed Test Results}
 \label{sect:detailedtestresults}
-
 
 \end{document}

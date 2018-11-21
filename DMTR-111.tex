@@ -9,8 +9,8 @@
 
 \begin{document}
 
-\def\milestoneName{Ldm-503-09a: science pipelines fall 2018 release}
-\def\milestoneId{LVV-P15}
+\def\milestoneName{Science pipelines fall 2018 release}
+\def\milestoneId{LDM-503-09a:}
 \def\product{Science Pipelines SW}
 
 \setDocCompact{true}
@@ -169,6 +169,30 @@ documented, distributed, installable and tested.
 
 \subsubsection{LVV-T362}
 
+This test will check:
+
+\begin{itemize}
+\tightlist
+\item
+  That the Alert Production Pipeline payload is available for
+  installation from documented channels;
+\item
+  That the Data Release Production Pipeline payload is available for
+  installation from documented channels;
+\item
+  That the Calibration Products Production Pipeline payload is available
+  for installation from documented channels;
+\item
+  That these payloads can be installed on systems at the LSST Data
+  Facility following available documentation;
+\item
+  That the installed pipeline payloads are capable of successfully
+  executing basic integration tests.
+\end{itemize}
+
+Note that this test assumes a 2018-era packaging of the Science
+Pipelines software, in which all the above payloads are represented by a
+single ``meta-package'', lsst\_distrib.
 
 
 \begin{longtable}[]{p{1.3cm}p{15cm}}
@@ -230,6 +254,17 @@ README file.~
 
 \subsubsection{LVV-T363}
 
+This test will check:
+
+\begin{itemize}
+\tightlist
+\item
+  That a particular Science Pipelines release is adequately described by
+  documentation at the https://pipelines.lsst.io/ site;
+\item
+  That the Science Pipelines release is accompanied by a
+  characterization report which describes its scientific performance.
+\end{itemize}
 
 
 \begin{longtable}[]{p{1.3cm}p{15cm}}

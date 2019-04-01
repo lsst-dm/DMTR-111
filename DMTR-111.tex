@@ -42,7 +42,10 @@ This is the test plan and report for \milestoneId{} (\milestoneName{}), an LSST 
 
 This test plan checks for the successful release of the Fall 2018
 release of the LSST Science Pipelines (Pipelines release version
-17.0).\\[2\baselineskip]It will demonstrate that:\\[2\baselineskip]
+17.0).\\
+~\\
+It will demonstrate that:\\
+~\\
 
 \begin{itemize}
 \tightlist
@@ -68,9 +71,11 @@ release of the LSST Science Pipelines (Pipelines release version
 This test plan does not, in itself, verify the scientific integrity or
 algorithmic correctness of the release, beyond checking that defined
 procedures for checking basic correctness and characterizing algorithmic
-performance have been followed.\\[2\baselineskip]
+performance have been followed.\\
+~\\
 
-\subsection{Scope}\label{scope}
+\hypertarget{scope}{%
+\subsection{Scope}\label{scope}}
 
 The overall strategy for testing and verification within LSST Data
 Management is described in \citeds{LDM-503}.\\
@@ -90,10 +95,12 @@ middleware which is common across execution environment (for example,
 the ``Data Butler'' I/O abstraction is included, but schedulers or
 workflow management for specific clusters is not), and ``camera
 packages'' which adapt and configure the algorithms for use with
-specific instrumentation.\\[2\baselineskip]
+specific instrumentation.\\
+~\\
 
+\hypertarget{applicable-documents}{%
 \subsection{\texorpdfstring{Applicable Documents\\
-}{Applicable Documents }}\label{applicable-documents}
+}{Applicable Documents }}\label{applicable-documents}}
 
 \citeds{LDM-503} Data Management Test Plan\\
 \citeds{LDM-151} Data Management Science Pipelines Design\\
@@ -109,17 +116,15 @@ This document was generated from Jira, obtaining the relevant information from t
   \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCycle/LVV-C18}{LVV-C18}
 ).
 
-%The following general sections are completed before the start of the test activity.
-
 Section \ref{sect:intro} provides an overview of the test campaign, the system under test (\product{}), the applicable documentation, and explains how this document is organized.
 Section \ref{sect:configuration}  describes the configuration used for this test.
-Section \ref{sect:personnel} lists all the individuals involved and describes their roles.
+Section \ref{sect:personnel} describes the necessary roles and lists the individuals assigned to them.
 %Section \ref{sect:plannedtestactivities} provides the list of planned test cycles and test cases, including all relevant information that fully describes the test campaign.
 
 Section \ref{sect:overview} provides a summary of the test results, including an overview in Table \ref{table:summary}, an overall assessment statement and suggestions for possible improvements.
 Section \ref{sect:detailedtestresults} provides detailed results for each step in each test case.
 
-The current status of test plan LVV-P15 in Jira is Draft.
+The current status of test plan LVV-P15 in Jira is Approved.
 
 \subsection{References}
 \label{sect:references}
@@ -138,15 +143,18 @@ The current status of test plan LVV-P15 in Jira is Draft.
 they involve checking that certain content has been properly published.
 This can be performed from any internet-connected system with a web
 browser, and will, in this case, likely be executed from the tester's
-laptop.\\[2\baselineskip]Where tests require installation or execution
-of specific Science Pipelines components, this will be carried out on
-the ``lsst-dev'' shared developer infrastructure at the LSST Data
-Facility. This infrastructure provides a number of powerful (high core
-count, high RAM) systems accessible to LSST developers. At time of
-writing, they are running CentOS 7.5.1804; in practice, any version of
-CentOS (or a similar operating system) is appropriate for this test
-plan, as long as it complies with the published installation
-prerequisites of the LSST pipelines.\\[2\baselineskip]
+laptop.\\
+~\\
+Where tests require installation or execution of specific Science
+Pipelines components, this will be carried out on the ``lsst-dev''
+shared developer infrastructure at the LSST Data Facility. This
+infrastructure provides a number of powerful (high core count, high RAM)
+systems accessible to LSST developers. At time of writing, they are
+running CentOS 7.5.1804; in practice, any version of CentOS (or a
+similar operating system) is appropriate for this test plan, as long as
+it complies with the published installation prerequisites of the LSST
+pipelines.\\
+~\\
 
 
 
@@ -164,8 +172,8 @@ The following personnel are involved in this test activity:
   \item LVV-C18 owner: 
     John Swinbank
   \begin{itemize}
-    \item Test case LVV-T362 tester: John Swinbank
-    \item Test case LVV-T363 tester: John Swinbank
+    \item Test case \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T362}{LVV-T362} tester: John Swinbank
+    \item Test case \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T363}{LVV-T363} tester: John Swinbank
   \end{itemize}
 \end{itemize}
 \item Additional Test Personnel involved: None
@@ -179,15 +187,16 @@ The following personnel are involved in this test activity:
 \subsection{Summary}
 \label{sect:summarytable}
 
-\begin{longtable} {p{0.2\textwidth}p{0.2\textwidth}p{0.6\textwidth}}
+\begin{longtable}{p{0.12\textwidth}p{0.2\textwidth}p{0.56\textwidth}p{0.12\textwidth}}
 \toprule
-  \multicolumn{3}{c}{ Test Cycle {\bf LVV-C18: LDM-503-09a: Science Pipelines Fall 2018 Release }} \\\hline
-  {\bf \footnotesize test case} & {\bf \footnotesize status} & {\bf \footnotesize comment} \\\toprule
+  \multicolumn{3}{c}{ Test Cycle {\bf LVV-C18: LDM-503-09a: Science Pipelines Fall 2018 Release
+ }} \\\hline
+  {\bf \footnotesize test case} & {\bf \footnotesize status} & {\bf \footnotesize comment} & {\bf \footnotesize issues} \\\toprule
     \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T362}{LVV-T362} 
-    & Not Executed & 
+    & Pass &  &
     \\\hline
     \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T363}{LVV-T363} 
-    & Not Executed & 
+    & Pass &  &
     \\\hline
 
 \caption{Test Results Summary}
@@ -211,10 +220,12 @@ Not yet available.
 
   \subsection{Test Cycle LVV-C18 }
 
-Open test cycle {\it \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testrun/LVV-C18}{LDM-503-09a: Science Pipelines Fall 2018 Release}} in Jira.
+Open test cycle {\it \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testrun/LVV-C18}{LDM-503-09a: Science Pipelines Fall 2018 Release
+}} in Jira.
 
-  LDM-503-09a: Science Pipelines Fall 2018 Release\\
-  Status: Not Executed
+  LDM-503-09a: Science Pipelines Fall 2018 Release
+\\
+  Status: Done
 
   This test cycle describes tests performed on the Science Pipelines Fall
 2018 (v17.0) release, ensuring that the release is properly identified,
@@ -223,18 +234,20 @@ documented, distributed, installable and tested.
 
   \subsubsection{Software Version/Baseline}
     A web browser is required for inspecting release artifacts published to
-the web.\\[2\baselineskip]Testing the software installation procedures,
-and demonstrating that the release's integration tests can be executed
-successfully, require a supported operating system with the documented
-prerequisites of the release installed. This will be carried out on the
-''lsst-dev'' shared developer systems at the LSST Data Facility. At time
-of writing, these systems run CentOS Linux release 7.5.1804, and it is
-anticipated that this will be a supported platform for the Science
-Pipelines release. Science Pipelines prerequisites are currently
-documented at https://pipelines.lsst.io/install/prereqs/centos.html and
-all of these must be installed. It is possible that the software release
-will involve a reorganization of documentation describing prerequisites;
-in this case, the documentation corresponding to the new release must be
+the web.\\
+~\\
+Testing the software installation procedures, and demonstrating that the
+release's integration tests can be executed successfully, require a
+supported operating system with the documented prerequisites of the
+release installed. This will be carried out on the ''lsst-dev'' shared
+developer systems at the LSST Data Facility. At time of writing, these
+systems run CentOS Linux release 7.5.1804, and it is anticipated that
+this will be a supported platform for the Science Pipelines release.
+Science Pipelines prerequisites are currently documented at
+https://pipelines.lsst.io/install/prereqs/centos.html and all of these
+must be installed. It is possible that the software release will involve
+a reorganization of documentation describing prerequisites; in this
+case, the documentation corresponding to the new release must be
 consulted.
 
 
@@ -280,7 +293,7 @@ single ``meta-package'', lsst\_distrib.
     {\bf Preconditions}:\\
     
 
-    Execution status: {\bf Not Executed }
+    Execution status: {\bf Pass }
 
     Final comment:\\
 
@@ -305,27 +318,36 @@ to ensure that a supported execution environment is available.
       & Expected Result & 
 
       \begin{minipage}[t]{13cm}{\footnotesize
-      
+      Detailed output will depend on the installation method chosen, but will
+confirm the successful installation of the Science Pipelines.
+
       \vspace{\dp0}
       } \end{minipage} \\
       \\ \cdashline{2-3}
 
       & \begin{minipage}[t]{2cm}{Actual\\ Result}\end{minipage}   & 
       \begin{minipage}[t]{13cm}{\footnotesize
-      
+      The output ends with:\\
+~\\
+\hspace*{0.333em} ~{[} 128/128 {]} ~lsst\_distrib 17.0.1 (DarwinX86) ~ ~
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~done.\\
+~\\
+The LSST Science Pipelines are successfully installed.
+
       \vspace{\dp0}
       } \end{minipage} \\
       \\ \cdashline{2-3}
 
-      & Status          & Not Executed \\ \hline
+
+      & Status          & Pass \\ \hline
 
       2 & Description &
 
       \begin{minipage}[t]{13cm}{\footnotesize
       The lsst\_distrib top-level metapackage will be enabled. Assuming that
-the software has been installed at
-\$\{LSST\_DIR\}:\\[2\baselineskip]\hspace*{0.333em} ~ ~ ~source
-\$\{LSST\_DIR\}/loadLSST.bash\\
+the software has been installed at \$\{LSST\_DIR\}:\\
+~\\
+\hspace*{0.333em} ~ ~ ~source \$\{LSST\_DIR\}/loadLSST.bash\\
 \hspace*{0.333em} ~ ~ ~setup lsst\_distrib
 
       \vspace{\dp0}
@@ -335,19 +357,28 @@ the software has been installed at
       & Expected Result & 
 
       \begin{minipage}[t]{13cm}{\footnotesize
-      
+      Nothing is printed. The command\\
+~\\
+\hspace*{0.333em} ~eups list -s lsst\_distrib\\
+~\\
+may be used to confirm that the correct version of the codebase has been
+installed.
+
       \vspace{\dp0}
       } \end{minipage} \\
       \\ \cdashline{2-3}
 
       & \begin{minipage}[t]{2cm}{Actual\\ Result}\end{minipage}   & 
       \begin{minipage}[t]{13cm}{\footnotesize
-      
+      \$ eups list -s lsst\_distrib\\
+\hspace*{0.333em} ~17.0.1 ~ ~ ~ current v17\_0\_1 o\_latest setup
+
       \vspace{\dp0}
       } \end{minipage} \\
       \\ \cdashline{2-3}
 
-      & Status          & Not Executed \\ \hline
+
+      & Status          & Pass \\ \hline
 
       3 & Description &
 
@@ -364,19 +395,22 @@ should be chosen.
       & Expected Result & 
 
       \begin{minipage}[t]{13cm}{\footnotesize
-      
+      Depends on the tool selected by the user for downloading.
+
       \vspace{\dp0}
       } \end{minipage} \\
       \\ \cdashline{2-3}
 
       & \begin{minipage}[t]{2cm}{Actual\\ Result}\end{minipage}   & 
       \begin{minipage}[t]{13cm}{\footnotesize
-      
+      Downloaded successfully.
+
       \vspace{\dp0}
       } \end{minipage} \\
       \\ \cdashline{2-3}
 
-      & Status          & Not Executed \\ \hline
+
+      & Status          & Pass \\ \hline
 
       4 & Description &
 
@@ -390,26 +424,29 @@ should be chosen.
       & Expected Result & 
 
       \begin{minipage}[t]{13cm}{\footnotesize
-      
+      Depends on options given to the tar command. Should confirm the
+availability of the stack demo source.
+
       \vspace{\dp0}
       } \end{minipage} \\
       \\ \cdashline{2-3}
 
       & \begin{minipage}[t]{2cm}{Actual\\ Result}\end{minipage}   & 
       \begin{minipage}[t]{13cm}{\footnotesize
-      
+      Source uncompressed successfully.
+
       \vspace{\dp0}
       } \end{minipage} \\
       \\ \cdashline{2-3}
 
-      & Status          & Not Executed \\ \hline
+
+      & Status          & Pass \\ \hline
 
       5 & Description &
 
       \begin{minipage}[t]{13cm}{\footnotesize
       The demo package will be executed by following the instructions in its
-README file. Successful execution will result in the string ``Ok'' being
-returned.~
+README file.~
 
       \vspace{\dp0}
       } \end{minipage} \\
@@ -418,19 +455,23 @@ returned.~
       & Expected Result & 
 
       \begin{minipage}[t]{13cm}{\footnotesize
-      
+      Successful execution will result in the string ``Ok'' being returned.
+
       \vspace{\dp0}
       } \end{minipage} \\
       \\ \cdashline{2-3}
 
       & \begin{minipage}[t]{2cm}{Actual\\ Result}\end{minipage}   & 
       \begin{minipage}[t]{13cm}{\footnotesize
-      
+      \$ ./bin/compare detected-sources.txt~\\
+Ok.
+
       \vspace{\dp0}
       } \end{minipage} \\
       \\ \cdashline{2-3}
 
-      & Status          & Not Executed \\ \hline
+
+      & Status          & Pass \\ \hline
 
     \end{longtable}
 
@@ -456,7 +497,7 @@ test case in Jira.
     {\bf Preconditions}:\\
     
 
-    Execution status: {\bf Not Executed }
+    Execution status: {\bf Pass }
 
     Final comment:\\
 
@@ -478,31 +519,37 @@ test case in Jira.
       & Expected Result & 
 
       \begin{minipage}[t]{13cm}{\footnotesize
-      
+      The website is displayed.
+
       \vspace{\dp0}
       } \end{minipage} \\
       \\ \cdashline{2-3}
 
       & \begin{minipage}[t]{2cm}{Actual\\ Result}\end{minipage}   & 
       \begin{minipage}[t]{13cm}{\footnotesize
-      
+      Site loaded.
+
       \vspace{\dp0}
       } \end{minipage} \\
       \\ \cdashline{2-3}
 
-      & Status          & Not Executed \\ \hline
+
+      & Status          & Pass \\ \hline
 
       2 & Description &
 
       \begin{minipage}[t]{13cm}{\footnotesize
       Identify documentation for the release under test. This should be
-clearly labelled on the documentation site.\\[2\baselineskip]If the
-latest release is being tested, the default page loaded when visiting
-https://pipelines.lsst.io/ should be the documentation
-required.\\[2\baselineskip]If this test is for another release, the site
-should present clear instructions for changing the edition (or version)
-of the documentation being examined, and documentation for the release
-under test should be available.
+clearly labelled on the documentation site.\\
+~\\
+If the latest release is being tested, the default page loaded when
+visiting https://pipelines.lsst.io/ should be the documentation
+required.\\
+~\\
+If this test is for another release, the site should present clear
+instructions for changing the edition (or version) of the documentation
+being examined, and documentation for the release under test should be
+available.
 
       \vspace{\dp0}
       } \end{minipage} \\
@@ -511,19 +558,23 @@ under test should be available.
       & Expected Result & 
 
       \begin{minipage}[t]{13cm}{\footnotesize
-      
+      The documentation for the release under test is displayed.
+
       \vspace{\dp0}
       } \end{minipage} \\
       \\ \cdashline{2-3}
 
       & \begin{minipage}[t]{2cm}{Actual\\ Result}\end{minipage}   & 
       \begin{minipage}[t]{13cm}{\footnotesize
-      
+      Documentation for the release under test is clearly labelled on the
+front page of https://pipelines.lsst.io/.
+
       \vspace{\dp0}
       } \end{minipage} \\
       \\ \cdashline{2-3}
 
-      & Status          & Not Executed \\ \hline
+
+      & Status          & Pass \\ \hline
 
       3 & Description &
 
@@ -550,19 +601,22 @@ test, and that it provides:
       & Expected Result & 
 
       \begin{minipage}[t]{13cm}{\footnotesize
-      
+      The user is satisfied that the required information is available.
+
       \vspace{\dp0}
       } \end{minipage} \\
       \\ \cdashline{2-3}
 
       & \begin{minipage}[t]{2cm}{Actual\\ Result}\end{minipage}   & 
       \begin{minipage}[t]{13cm}{\footnotesize
-      
+      All information described is present.
+
       \vspace{\dp0}
       } \end{minipage} \\
       \\ \cdashline{2-3}
 
-      & Status          & Not Executed \\ \hline
+
+      & Status          & Pass \\ \hline
 
       4 & Description &
 
@@ -577,19 +631,22 @@ It should be linked from the main release documentation.
       & Expected Result & 
 
       \begin{minipage}[t]{13cm}{\footnotesize
-      
+      The user is satisfied that the report is available.
+
       \vspace{\dp0}
       } \end{minipage} \\
       \\ \cdashline{2-3}
 
       & \begin{minipage}[t]{2cm}{Actual\\ Result}\end{minipage}   & 
       \begin{minipage}[t]{13cm}{\footnotesize
-      
+      Characterization metric report DMTR-135 clearly labelled and downloaded.
+
       \vspace{\dp0}
       } \end{minipage} \\
       \\ \cdashline{2-3}
 
-      & Status          & Not Executed \\ \hline
+
+      & Status          & Pass \\ \hline
 
       5 & Description &
 
@@ -607,19 +664,22 @@ Specifications, LSE-30).
       & Expected Result & 
 
       \begin{minipage}[t]{13cm}{\footnotesize
-      
+      The user is satisfied with the contents of the report.
+
       \vspace{\dp0}
       } \end{minipage} \\
       \\ \cdashline{2-3}
 
       & \begin{minipage}[t]{2cm}{Actual\\ Result}\end{minipage}   & 
       \begin{minipage}[t]{13cm}{\footnotesize
-      
+      Verification report is as described.
+
       \vspace{\dp0}
       } \end{minipage} \\
       \\ \cdashline{2-3}
 
-      & Status          & Not Executed \\ \hline
+
+      & Status          & Pass \\ \hline
 
     \end{longtable}
 

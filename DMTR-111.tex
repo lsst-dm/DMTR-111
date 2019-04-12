@@ -1,4 +1,4 @@
-\documentclass[DM,lsstdraft,STR,toc]{lsstdoc}
+\documentclass[DM,STR,toc]{lsstdoc}
 \usepackage{geometry}
 \usepackage{longtable,booktabs}
 \usepackage{enumitem}
@@ -20,8 +20,7 @@
 \title[\milestoneId{}~Test Report]{\milestoneId{} (\milestoneName{})~Test Plan and Report}
 \setDocRef{\lsstDocType-\lsstDocNum}
 \setDocDate{\vcsdate}
-\setDocUpstreamLocation{\url{https://github.com/lsst/lsst-texmf/examples}}
-\author{ John Swinbank }
+\author{ John D. Swinbank }
 
 \input history_and_info.tex
 
@@ -109,17 +108,15 @@ This document was generated from Jira, obtaining the relevant information from t
   \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCycle/LVV-C18}{LVV-C18}
 ).
 
-%The following general sections are completed before the start of the test activity.
-
 Section \ref{sect:intro} provides an overview of the test campaign, the system under test (\product{}), the applicable documentation, and explains how this document is organized.
 Section \ref{sect:configuration}  describes the configuration used for this test.
-Section \ref{sect:personnel} lists all the individuals involved and describes their roles.
+Section \ref{sect:personnel} describes the necessary roles and lists the individuals assigned to them.
 %Section \ref{sect:plannedtestactivities} provides the list of planned test cycles and test cases, including all relevant information that fully describes the test campaign.
 
 Section \ref{sect:overview} provides a summary of the test results, including an overview in Table \ref{table:summary}, an overall assessment statement and suggestions for possible improvements.
 Section \ref{sect:detailedtestresults} provides detailed results for each step in each test case.
 
-The current status of test plan LVV-P15 in Jira is Draft.
+The current status of test plan LVV-P15 in Jira is Completed.
 
 \subsection{References}
 \label{sect:references}
@@ -164,8 +161,8 @@ The following personnel are involved in this test activity:
   \item LVV-C18 owner: 
     John Swinbank
   \begin{itemize}
-    \item Test case LVV-T362 tester: John Swinbank
-    \item Test case LVV-T363 tester: John Swinbank
+    \item Test case \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T362}{LVV-T362} tester: John Swinbank
+    \item Test case \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T363}{LVV-T363} tester: John Swinbank
   \end{itemize}
 \end{itemize}
 \item Additional Test Personnel involved: None
@@ -179,15 +176,18 @@ The following personnel are involved in this test activity:
 \subsection{Summary}
 \label{sect:summarytable}
 
-\begin{longtable} {p{0.2\textwidth}p{0.2\textwidth}p{0.6\textwidth}}
+\begin{longtable}{p{0.12\textwidth}p{0.2\textwidth}p{0.56\textwidth}p{0.12\textwidth}}
 \toprule
-  \multicolumn{3}{c}{ Test Cycle {\bf LVV-C18: LDM-503-09a: Science Pipelines Fall 2018 Release }} \\\hline
-  {\bf \footnotesize test case} & {\bf \footnotesize status} & {\bf \footnotesize comment} \\\toprule
+  \multicolumn{3}{c}{ Test Cycle {\bf LVV-C18: LDM-503-09a: Science Pipelines Fall 2018 Release
+ }} \\\hline
+  {\bf \footnotesize test case} & {\bf \footnotesize status} & {\bf \footnotesize comment} & {\bf \footnotesize issues} \\\toprule
     \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T362}{LVV-T362} 
-    & Not Executed & 
+    & Pass & This test case was executed successfully, with no issues arising.
+ &
     \\\hline
     \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T363}{LVV-T363} 
-    & Not Executed & 
+    & Pass & This test case was executed successfully, with no issues arising.
+ &
     \\\hline
 
 \caption{Test Results Summary}
@@ -197,12 +197,18 @@ The following personnel are involved in this test activity:
 \subsection{Overall Assessment}
 \label{sect:overallassessment}
 
-Not yet available.
+This test plan was executed successfully; no issues were encountered.
+
 
 \subsection{Recommended Improvements}
 \label{sect:recommendations}
 
-Not yet available.
+Contrary to the test plan description, none of the test cases actually
+demonstrated that the shared stack environment on the shared LSST
+developer systems or the Verification Cluster had been updated with the
+new stack. A further test case could be added to future executions of
+similar plan to check this.
+
 
 \newpage
 \section{Detailed Test Results}
@@ -211,10 +217,12 @@ Not yet available.
 
   \subsection{Test Cycle LVV-C18 }
 
-Open test cycle {\it \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testrun/LVV-C18}{LDM-503-09a: Science Pipelines Fall 2018 Release}} in Jira.
+Open test cycle {\it \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testrun/LVV-C18}{LDM-503-09a: Science Pipelines Fall 2018 Release
+}} in Jira.
 
-  LDM-503-09a: Science Pipelines Fall 2018 Release\\
-  Status: Not Executed
+  LDM-503-09a: Science Pipelines Fall 2018 Release
+\\
+  Status: Done
 
   This test cycle describes tests performed on the Science Pipelines Fall
 2018 (v17.0) release, ensuring that the release is properly identified,
@@ -280,9 +288,10 @@ single ``meta-package'', lsst\_distrib.
     {\bf Preconditions}:\\
     
 
-    Execution status: {\bf Not Executed }
+    Execution status: {\bf Pass }
 
-    Final comment:\\
+    Final comment:\\This test case was executed successfully, with no issues arising.
+
 
 
     Detailed step results:
@@ -305,19 +314,26 @@ to ensure that a supported execution environment is available.
       & Expected Result & 
 
       \begin{minipage}[t]{13cm}{\footnotesize
-      
+      Detailed output will depend on the installation method chosen, but will
+confirm the successful installation of the Science Pipelines.
+
       \vspace{\dp0}
       } \end{minipage} \\
       \\ \cdashline{2-3}
 
       & \begin{minipage}[t]{2cm}{Actual\\ Result}\end{minipage}   & 
       \begin{minipage}[t]{13cm}{\footnotesize
-      
+      The output ends with:\\[2\baselineskip]\hspace*{0.333em} ~{[} 128/128
+{]} ~lsst\_distrib 17.0.1 (DarwinX86) ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+~done.\\[2\baselineskip]The LSST Science Pipelines are successfully
+installed.
+
       \vspace{\dp0}
       } \end{minipage} \\
       \\ \cdashline{2-3}
 
-      & Status          & Not Executed \\ \hline
+
+      & Status          & Pass \\ \hline
 
       2 & Description &
 
@@ -335,19 +351,25 @@ the software has been installed at
       & Expected Result & 
 
       \begin{minipage}[t]{13cm}{\footnotesize
-      
+      Nothing is printed. The command\\[2\baselineskip]\hspace*{0.333em} ~eups
+list -s lsst\_distrib\\[2\baselineskip]may be used to confirm that the
+correct version of the codebase has been installed.
+
       \vspace{\dp0}
       } \end{minipage} \\
       \\ \cdashline{2-3}
 
       & \begin{minipage}[t]{2cm}{Actual\\ Result}\end{minipage}   & 
       \begin{minipage}[t]{13cm}{\footnotesize
-      
+      \$ eups list -s lsst\_distrib\\
+\hspace*{0.333em} ~17.0.1 ~ ~ ~ current v17\_0\_1 o\_latest setup
+
       \vspace{\dp0}
       } \end{minipage} \\
       \\ \cdashline{2-3}
 
-      & Status          & Not Executed \\ \hline
+
+      & Status          & Pass \\ \hline
 
       3 & Description &
 
@@ -364,19 +386,22 @@ should be chosen.
       & Expected Result & 
 
       \begin{minipage}[t]{13cm}{\footnotesize
-      
+      Depends on the tool selected by the user for downloading.
+
       \vspace{\dp0}
       } \end{minipage} \\
       \\ \cdashline{2-3}
 
       & \begin{minipage}[t]{2cm}{Actual\\ Result}\end{minipage}   & 
       \begin{minipage}[t]{13cm}{\footnotesize
-      
+      Downloaded successfully.
+
       \vspace{\dp0}
       } \end{minipage} \\
       \\ \cdashline{2-3}
 
-      & Status          & Not Executed \\ \hline
+
+      & Status          & Pass \\ \hline
 
       4 & Description &
 
@@ -390,26 +415,29 @@ should be chosen.
       & Expected Result & 
 
       \begin{minipage}[t]{13cm}{\footnotesize
-      
+      Depends on options given to the tar command. Should confirm the
+availability of the stack demo source.
+
       \vspace{\dp0}
       } \end{minipage} \\
       \\ \cdashline{2-3}
 
       & \begin{minipage}[t]{2cm}{Actual\\ Result}\end{minipage}   & 
       \begin{minipage}[t]{13cm}{\footnotesize
-      
+      Source uncompressed successfully.
+
       \vspace{\dp0}
       } \end{minipage} \\
       \\ \cdashline{2-3}
 
-      & Status          & Not Executed \\ \hline
+
+      & Status          & Pass \\ \hline
 
       5 & Description &
 
       \begin{minipage}[t]{13cm}{\footnotesize
       The demo package will be executed by following the instructions in its
-README file. Successful execution will result in the string ``Ok'' being
-returned.~
+README file.~
 
       \vspace{\dp0}
       } \end{minipage} \\
@@ -418,19 +446,23 @@ returned.~
       & Expected Result & 
 
       \begin{minipage}[t]{13cm}{\footnotesize
-      
+      Successful execution will result in the string ``Ok'' being returned.
+
       \vspace{\dp0}
       } \end{minipage} \\
       \\ \cdashline{2-3}
 
       & \begin{minipage}[t]{2cm}{Actual\\ Result}\end{minipage}   & 
       \begin{minipage}[t]{13cm}{\footnotesize
-      
+      \$ ./bin/compare detected-sources.txt~\\
+Ok.
+
       \vspace{\dp0}
       } \end{minipage} \\
       \\ \cdashline{2-3}
 
-      & Status          & Not Executed \\ \hline
+
+      & Status          & Pass \\ \hline
 
     \end{longtable}
 
@@ -456,9 +488,10 @@ test case in Jira.
     {\bf Preconditions}:\\
     
 
-    Execution status: {\bf Not Executed }
+    Execution status: {\bf Pass }
 
-    Final comment:\\
+    Final comment:\\This test case was executed successfully, with no issues arising.
+
 
 
     Detailed step results:
@@ -478,19 +511,22 @@ test case in Jira.
       & Expected Result & 
 
       \begin{minipage}[t]{13cm}{\footnotesize
-      
+      The website is displayed.
+
       \vspace{\dp0}
       } \end{minipage} \\
       \\ \cdashline{2-3}
 
       & \begin{minipage}[t]{2cm}{Actual\\ Result}\end{minipage}   & 
       \begin{minipage}[t]{13cm}{\footnotesize
-      
+      Site loaded.
+
       \vspace{\dp0}
       } \end{minipage} \\
       \\ \cdashline{2-3}
 
-      & Status          & Not Executed \\ \hline
+
+      & Status          & Pass \\ \hline
 
       2 & Description &
 
@@ -511,19 +547,23 @@ under test should be available.
       & Expected Result & 
 
       \begin{minipage}[t]{13cm}{\footnotesize
-      
+      The documentation for the release under test is displayed.
+
       \vspace{\dp0}
       } \end{minipage} \\
       \\ \cdashline{2-3}
 
       & \begin{minipage}[t]{2cm}{Actual\\ Result}\end{minipage}   & 
       \begin{minipage}[t]{13cm}{\footnotesize
-      
+      Documentation for the release under test is clearly labelled on the
+front page of https://pipelines.lsst.io/.
+
       \vspace{\dp0}
       } \end{minipage} \\
       \\ \cdashline{2-3}
 
-      & Status          & Not Executed \\ \hline
+
+      & Status          & Pass \\ \hline
 
       3 & Description &
 
@@ -550,19 +590,22 @@ test, and that it provides:
       & Expected Result & 
 
       \begin{minipage}[t]{13cm}{\footnotesize
-      
+      The user is satisfied that the required information is available.
+
       \vspace{\dp0}
       } \end{minipage} \\
       \\ \cdashline{2-3}
 
       & \begin{minipage}[t]{2cm}{Actual\\ Result}\end{minipage}   & 
       \begin{minipage}[t]{13cm}{\footnotesize
-      
+      All information described is present.
+
       \vspace{\dp0}
       } \end{minipage} \\
       \\ \cdashline{2-3}
 
-      & Status          & Not Executed \\ \hline
+
+      & Status          & Pass \\ \hline
 
       4 & Description &
 
@@ -577,19 +620,22 @@ It should be linked from the main release documentation.
       & Expected Result & 
 
       \begin{minipage}[t]{13cm}{\footnotesize
-      
+      The user is satisfied that the report is available.
+
       \vspace{\dp0}
       } \end{minipage} \\
       \\ \cdashline{2-3}
 
       & \begin{minipage}[t]{2cm}{Actual\\ Result}\end{minipage}   & 
       \begin{minipage}[t]{13cm}{\footnotesize
-      
+      Characterization metric report DMTR-131 clearly labelled and downloaded.
+
       \vspace{\dp0}
       } \end{minipage} \\
       \\ \cdashline{2-3}
 
-      & Status          & Not Executed \\ \hline
+
+      & Status          & Pass \\ \hline
 
       5 & Description &
 
@@ -607,19 +653,22 @@ Specifications, LSE-30).
       & Expected Result & 
 
       \begin{minipage}[t]{13cm}{\footnotesize
-      
+      The user is satisfied with the contents of the report.
+
       \vspace{\dp0}
       } \end{minipage} \\
       \\ \cdashline{2-3}
 
       & \begin{minipage}[t]{2cm}{Actual\\ Result}\end{minipage}   & 
       \begin{minipage}[t]{13cm}{\footnotesize
-      
+      Verification report is as described.
+
       \vspace{\dp0}
       } \end{minipage} \\
       \\ \cdashline{2-3}
 
-      & Status          & Not Executed \\ \hline
+
+      & Status          & Pass \\ \hline
 
     \end{longtable}
 
